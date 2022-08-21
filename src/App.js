@@ -1,9 +1,9 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Welcome from "./pages/Welcome";
-import JobListings from "./pages/JobListings";
 import { createStore, StoreProvider } from "easy-peasy";
 import globalState from './model';
+import UserPage from './pages/UserPage';
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
     <StoreProvider store={store}>
       <Routes>
         <Route path='/' element={<Welcome/>}></Route>
-        <Route path='/listings/:user' element={<JobListings/>}></Route>
+        <Route path='/listings/:user' element={<UserPage/>}></Route>
       </Routes>
     </StoreProvider>
   );
