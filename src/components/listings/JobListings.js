@@ -6,7 +6,8 @@ const JobListings = () => {
   const stack = useStoreState(state => state.stack);
 
   useEffect(() => {
-    console.log(stack);
+    const searchParam = stack.join(" ").toLowerCase();
+    console.log(searchParam);
   }, [stack]);
 
   return (
