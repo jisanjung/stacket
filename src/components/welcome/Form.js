@@ -1,14 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '../globals/Button'
 import Heading from '../globals/Heading'
 import Input from '../globals/Input'
-import { useStoreState, useStoreActions } from "easy-peasy";
 import { useNavigate } from "react-router-dom";
 
 const Form = () => {
 
-  const setUsername = useStoreActions(actions => actions.setUsername);
-  const username = useStoreState(state => state.username);
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = e => {
