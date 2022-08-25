@@ -15,7 +15,7 @@ const Form = () => {
   }
 
   return (
-    <div id="welcomeForm" className='h-screen bg-custom-light-green px-12'>
+    <div id="welcomeForm" className='h-screen px-12'>
         <div className='flex items-center h-full'>
             <form className='w-full mb-16' onSubmit={handleSubmit}>
                 <Heading text="Try it out" className="text-2xl mb-4"/>

@@ -23,7 +23,7 @@ const SingleJobCard = (props) => {
                 </div>
             </div>
             <div className='relative'>
-                <span className='text-xs absolute bottom-0 right-0'>
+                <span className='text-xs absolute bottom-0 right-0 sm:w-16'>
                     {dayjs(formatDate).fromNow()}
                 </span>
             </div>

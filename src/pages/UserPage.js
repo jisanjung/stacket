@@ -26,7 +26,7 @@ const UserPage = () => {
     }, [user]);
 
   return (
-    <main className='bg-custom-light-green'>
+    <main>
         <ProfileBar user={user}/>
         <JobListings user={user}/>
     </main>
