@@ -112,7 +112,10 @@ const JobListings = () => {
   }, [stack]);
 
   return (
-    <section>
+    <section className='px-5'>
+      <div className='py-4'>
+        <span>{mock.results.length}</span> result(s)
+      </div>
       {mock.results.map(job => {
         return (
           <SingleJobCard key={job.id} job={job}/>
