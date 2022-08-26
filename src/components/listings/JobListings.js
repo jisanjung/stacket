@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useStoreState } from "easy-peasy";
 import SingleJobCard from './SingleJobCard';
 
 const JobListings = () => {
 
   const stack = useStoreState(state => state.stack);
+  const [selectedJob, setSelectedJob] = useState(null);
+
   const mock = {
     "results": [
       {
@@ -118,9 +120,10 @@ const JobListings = () => {
       </div>
       {mock.results.map(job => {
         return (
-          <SingleJobCard key={job.id} job={job}/>
+          <SingleJobCard key={job.id} id={job.id} job={job} setSelectedJob={setSelectedJob}/>
         )
       })}
+      {(selectedJob !== null) && console.log(selectedJob)}
     </section>
   )
 }
