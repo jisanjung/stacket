@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InfoCard = (props) => {
+const MenuCard = (props) => {
   return (
     <div>
         {props.children}
@@ -8,4 +8,4 @@ const InfoCard = (props) => {
   )
 }
 
-export default InfoCard
+export default MenuCard
