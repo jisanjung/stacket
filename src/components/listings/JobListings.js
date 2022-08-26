@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useStoreState } from "easy-peasy";
 import SingleJobCard from './SingleJobCard';
+import MobileJobInfoCard from './MobileJobInfoCard';
 
 const JobListings = () => {
 
@@ -123,7 +124,7 @@ const JobListings = () => {
           <SingleJobCard key={job.id} id={job.id} job={job} setSelectedJob={setSelectedJob}/>
         )
       })}
-      {(selectedJob !== null) && console.log(selectedJob)}
+      {(selectedJob !== null) && <MobileJobInfoCard job={selectedJob}/>}
     </section>
   )
 }
