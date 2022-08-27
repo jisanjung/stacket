@@ -7,7 +7,7 @@ const MobileJobInfoCard = (props) => {
   return (
     <MenuCard className="left-0 right-0 -bottom-10 top-1/2 overflow-scroll">
       <div className='flex justify-center'>
-        <button>
+        <button onClick={() => props.setSelectedJob(null)}>
           <BsChevronCompactDown className='text-4xl mb-1'/>
         </button>
       </div>

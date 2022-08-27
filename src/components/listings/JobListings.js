@@ -124,7 +124,7 @@ const JobListings = () => {
           <SingleJobCard key={job.id} id={job.id} job={job} setSelectedJob={setSelectedJob}/>
         )
       })}
-      {(selectedJob !== null) && <MobileJobInfoCard job={selectedJob}/>}
+      {(selectedJob !== null) && <MobileJobInfoCard job={selectedJob} setSelectedJob={setSelectedJob}/>}
     </section>
   )
 }
