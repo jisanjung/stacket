@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { Octokit } from "https://cdn.skypack.dev/octokit";
 import JobListings from '../components/listings/JobListings';
-import ProfileBar from '../components/listings/ProfileBar';
+import ProfileBar from '../components/user/ProfileBar';
 import { useStoreActions } from "easy-peasy";
 
 const UserPage = () => {
