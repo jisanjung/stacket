@@ -7,7 +7,21 @@ import { useStoreActions } from "easy-peasy";
 
 const UserPage = () => {
 
+    const getLanguageCount = (languages) => {
+        languages = languages.filter(language => language); // get only valid languages, not null
+        const languageCounts = {};
+        languages.forEach((val, i) => {
+            if (languageCounts[val]) {
+                languageCounts[val] = languageCounts[val] + 1;
+            } else {
+                languageCounts[val] = 1;
+            }
+        });
+        return languageCounts;
+    }
+
     const setStack = useStoreActions(actions => actions.setStack);
+    const setStackStats = useStoreActions(actions => actions.setStackStats);
     const setOctokitLoading = useStoreActions(actions => actions.setOctokitLoading);
 
     const { user } = useParams();
@@ -21,6 +35,8 @@ const UserPage = () => {
         })
         .then(res => {
             setOctokitLoading(false);
+            const languageCounts = getLanguageCount(res.data.map(repo => repo.language));
+            setStackStats(languageCounts);
             const validLanguages = res.data.map(repo => repo.language).filter(language => language);
             const languageSet = new Set(validLanguages);
             setStack([...languageSet]);
