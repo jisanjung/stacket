@@ -2,6 +2,7 @@ import React from 'react'
 import MenuCard from '../globals/MenuCard';
 import { BsChevronCompactLeft } from "react-icons/bs";
 import ProfilePic from './ProfilePic';
+import SkillMeter from './SkillMeter';
 
 const MobileProfileCard = (props) => {
   return (
@@ -14,6 +15,7 @@ const MobileProfileCard = (props) => {
         <div className='ml-10'>
             <div className='flex flex-col justify-center items-center'>
                 <ProfilePic className="w-32 h-32"/>
+                <SkillMeter percent={50}/>
             </div>
         </div>
     </MenuCard>
