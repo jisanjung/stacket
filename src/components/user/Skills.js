@@ -23,6 +23,7 @@ const Skills = () => {
 
   return (
     <div className='w-full'>
+        <h2>Your skills: </h2>
         {stackStats && Object.keys(stackStats).map(language => {
             return (
                 <div key={language}>
