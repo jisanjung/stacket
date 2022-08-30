@@ -121,7 +121,7 @@ const JobListings = () => {
       </div>
       {mock.results.map(job => {
         return (
-          <SingleJobCard key={job.id} id={job.id} job={job} setSelectedJob={setSelectedJob}/>
+          <SingleJobCard key={job.id} id={job.id} job={job} selectedJob={selectedJob} setSelectedJob={setSelectedJob}/>
         )
       })}
       {(selectedJob !== null) && <MobileJobInfoCard job={selectedJob} setSelectedJob={setSelectedJob}/>}
