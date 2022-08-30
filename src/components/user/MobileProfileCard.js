@@ -18,7 +18,7 @@ const MobileProfileCard = (props) => {
         </div>
         <div className='ml-10'>
             <div className='flex flex-col justify-center items-center'>
-                <ProfilePic className="w-32 h-32"/>
+                <ProfilePic className="w-24 h-24 my-4"/>
                 <h1>{user}</h1>
                 <Skills/>
             </div>

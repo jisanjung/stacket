@@ -22,12 +22,12 @@ const Skills = () => {
     }, [stackStats]);
 
   return (
-    <div className='w-full'>
-        <h2>Your skills: </h2>
+    <div className='w-full px-4 mt-14'>
+        <h2 className='mb-1'>Your skills: </h2>
         {stackStats && Object.keys(stackStats).map(language => {
             return (
-                <div key={language}>
-                    <span>{language}</span>
+                <div key={language} className="mb-2">
+                    <span className='text-xs'>{language}</span>
                     <SkillMeter percent={Math.trunc(parseFloat((stackStats[language] / total) * 100))}/>
                 </div>
             )
