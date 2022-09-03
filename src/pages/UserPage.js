@@ -21,6 +21,7 @@ const UserPage = () => {
     }
 
     const setStack = useStoreActions(actions => actions.setStack);
+    const setFilterStack = useStoreActions(actions => actions.setFilterStack);
     const setStackStats = useStoreActions(actions => actions.setStackStats);
     const setOctokitLoading = useStoreActions(actions => actions.setOctokitLoading);
 
@@ -40,6 +41,7 @@ const UserPage = () => {
             const validLanguages = res.data.map(repo => repo.language).filter(language => language);
             const languageSet = new Set(validLanguages);
             setStack([...languageSet]);
+            setFilterStack([...languageSet]);
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
