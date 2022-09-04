@@ -4,7 +4,7 @@ import Form from '../components/welcome/Form'
 
 const Welcome = () => {
   return (
-    <main>
+    <main className='lg:flex'>
       <About/>
       <Form/>
     </main>
