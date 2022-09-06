@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { useStoreState } from "easy-peasy";
 import SingleJobCard from './SingleJobCard';
 import MobileJobInfoCard from './MobileJobInfoCard';
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 const JobListings = () => {
 
   const stack = useStoreState(state => state.stack);
   const [selectedJob, setSelectedJob] = useState(null);
+  const isLargeDesktop = useMediaQuery("(min-width: 1024px)");
+  const isLargerDesktop = useMediaQuery("(min-width: 1536px)");
+  const isLargestDesktop = useMediaQuery("(min-width: 1920px)");
 
   const mock = {
     "results": [
@@ -115,16 +119,29 @@ const JobListings = () => {
   }, [stack]);
 
   return (
-    <section className='px-5'>
-      <div className='py-4'>
-        <span>{mock.results.length}</span> result(s)
+    <section className='pt-20 px-5 lg:w-full lg:pl-60 lg:flex lg:justify-center'>
+      <div className='lg:w-11/12 xl:w-4/5' style={{ 
+        width: isLargerDesktop && "1024px",
+        minWidth: isLargestDesktop && "1200px"
+        }}>
+        <div className='py-4'>
+          <span>{mock.results.length}</span> result(s)
+        </div>
+        <div className='lg:flex'>
+          <div className='lg:w-1/2 lg:pr-3 xl:pr-5'>
+            {mock.results.map(job => {
+              return (
+                <SingleJobCard key={job.id} id={job.id} job={job} selectedJob={selectedJob} setSelectedJob={setSelectedJob}/>
+              )
+            })}
+          </div>
+          {isLargeDesktop && 
+          <div className='lg:pl-3 xl:pl-5'>
+            hey
+          </div>}
+        </div>
+        {(selectedJob !== null) && <MobileJobInfoCard job={selectedJob} setSelectedJob={setSelectedJob}/>}
       </div>
-      {mock.results.map(job => {
-        return (
-          <SingleJobCard key={job.id} id={job.id} job={job} selectedJob={selectedJob} setSelectedJob={setSelectedJob}/>
-        )
-      })}
-      {(selectedJob !== null) && <MobileJobInfoCard job={selectedJob} setSelectedJob={setSelectedJob}/>}
     </section>
   )
 }

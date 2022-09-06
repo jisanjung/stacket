@@ -47,7 +47,7 @@ const UserPage = () => {
     }, [user]);
 
   return (
-    <main>
+    <main className='lg:flex'>
         <ProfileBar user={user}/>
         <JobListings user={user}/>
     </main>
