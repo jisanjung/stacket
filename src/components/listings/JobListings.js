@@ -3,6 +3,7 @@ import { useStoreState } from "easy-peasy";
 import SingleJobCard from './SingleJobCard';
 import MobileJobInfoCard from './MobileJobInfoCard';
 import useMediaQuery from '../../hooks/useMediaQuery';
+import LanguageTagSet from '../user/LanguageTagSet';
 
 const JobListings = () => {
 
@@ -125,7 +126,12 @@ const JobListings = () => {
         width: isLargerDesktop && "1024px",
         minWidth: isLargestDesktop && "1200px"
         }}>
-        <div className='py-4'>
+        {isLargeDesktop && 
+          <div className='flex flex-wrap items-center'>
+            <h2 className='font-bold text-2xl mr-6'>Filter by skillset: </h2>
+            <LanguageTagSet/>
+          </div>}
+        <div className='py-4 mb-4 lg:mb-6'>
           <span>{mock.results.length}</span> result(s)
         </div>
         <div className='lg:flex'>

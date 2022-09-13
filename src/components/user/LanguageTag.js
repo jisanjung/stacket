@@ -6,7 +6,7 @@ const LanguageTag = (props) => {
     const doesLanguageExist = props.filterStack.find(item => item === props.language);
 
   return (
-    <Button text={props.language} className={`block py-2 mb-4 text-sm ${!doesLanguageExist && "bg-transparent"}`} onClick={props.onClick}/>
+    <Button text={props.language} className={`block py-2 mb-4 text-sm lg:py-1 lg:px-8 lg:mr-2 ${!doesLanguageExist && "bg-transparent"}`} onClick={props.onClick}/>
   )
 }
 
