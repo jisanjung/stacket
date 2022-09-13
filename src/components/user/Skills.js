@@ -2,7 +2,7 @@ import { useStoreState } from 'easy-peasy';
 import React, { useState, useEffect } from 'react'
 import SkillMeter from './SkillMeter';
 
-const Skills = () => {
+const Skills = (props) => {
 
     const [total, setTotal] = useState(0);
     const stackStats = useStoreState(state => state.stackStats);
@@ -22,7 +22,7 @@ const Skills = () => {
     }, [stackStats]);
 
   return (
-    <div className='w-full px-4 mt-14'>
+    <div className={`w-full px-4 mt-14 ${props.className}`}>
         <h2 className='mb-1'>Your skills: </h2>
         {stackStats && Object.keys(stackStats).map(language => {
             return (

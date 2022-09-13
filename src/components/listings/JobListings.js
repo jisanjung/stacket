@@ -11,6 +11,7 @@ const JobListings = () => {
   const isLargeDesktop = useMediaQuery("(min-width: 1024px)");
   const isLargerDesktop = useMediaQuery("(min-width: 1536px)");
   const isLargestDesktop = useMediaQuery("(min-width: 1920px)");
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const mock = {
     "results": [
@@ -140,7 +141,7 @@ const JobListings = () => {
             hey
           </div>}
         </div>
-        {(selectedJob !== null) && <MobileJobInfoCard job={selectedJob} setSelectedJob={setSelectedJob}/>}
+        {(selectedJob !== null && isMobile) && <MobileJobInfoCard job={selectedJob} setSelectedJob={setSelectedJob}/>}
       </div>
     </section>
   )
