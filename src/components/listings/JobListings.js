@@ -4,6 +4,7 @@ import SingleJobCard from './SingleJobCard';
 import MobileJobInfoCard from './MobileJobInfoCard';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import LanguageTagSet from '../user/LanguageTagSet';
+import DesktopJobInfoCard from './DesktopJobInfoCard';
 
 const JobListings = () => {
 
@@ -143,8 +144,8 @@ const JobListings = () => {
             })}
           </div>
           {isLargeDesktop && 
-          <div className='lg:pl-3 xl:pl-5'>
-            hey
+          <div className='lg:pl-3 lg:w-1/2 xl:pl-5'>
+            <DesktopJobInfoCard job={selectedJob}/>
           </div>}
         </div>
         {(selectedJob !== null && isMobile) && <MobileJobInfoCard job={selectedJob} setSelectedJob={setSelectedJob}/>}
