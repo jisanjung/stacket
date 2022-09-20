@@ -18,7 +18,7 @@ const MobileFilterCard = (props) => {
             </button>
         </div>
         <div className='mt-10 mr-10 px-4'>
-            <Heading text="Filter by skillset:" className="text-lg"/>
+            <Heading text="Filter by skillset:" className="text-lg mb-8"/>
             <LanguageTagSet/>
         </div>
     </MenuCard>

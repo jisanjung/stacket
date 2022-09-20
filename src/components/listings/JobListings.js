@@ -121,7 +121,7 @@ const JobListings = () => {
   }, [stack]);
 
   return (
-    <section className='pt-20 px-5 lg:w-full lg:pl-60 lg:flex lg:justify-center'>
+    <section className='pt-20 px-5 lg:w-full lg:flex lg:justify-center lg:px-10 2xl:px-0'>
       <div className='lg:w-11/12 xl:w-4/5' style={{ 
         width: isLargerDesktop && "1024px",
         minWidth: isLargestDesktop && "1200px"
