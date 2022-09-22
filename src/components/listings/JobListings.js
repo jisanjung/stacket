@@ -8,7 +8,7 @@ import DesktopJobInfoCard from './DesktopJobInfoCard';
 
 const JobListings = () => {
 
-  const stack = useStoreState(state => state.stack);
+  const filterStack = useStoreState(state => state.filterStack);
   const [selectedJob, setSelectedJob] = useState(null);
   const isLargeDesktop = useMediaQuery("(min-width: 1024px)");
   const isLargerDesktop = useMediaQuery("(min-width: 1536px)");
@@ -17,12 +17,12 @@ const JobListings = () => {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
-    const searchParam = stack.join(" ").toLowerCase();
+    const searchParam = filterStack.join(" ").toLowerCase();
     // fetch job data based on user tech stack which is "searchParam"
     fetch(`https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${process.env.REACT_APP_ADZUNA_APP_ID}&app_key=${process.env.REACT_APP_ADZUNA_APP_KEY}&what_or=${searchParam}&results_per_page=5`)
     .then(res => res.json())
     .then(data => setListings(data.results));
-  }, [stack]);
+  }, [filterStack]);
 
   useEffect(() => {
     if (isLargeDesktop && listings.length > 0) {
