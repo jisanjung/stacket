@@ -3,13 +3,16 @@ import Button from '../globals/Button'
 import Heading from '../globals/Heading'
 import Input from '../globals/Input'
 import { useNavigate } from "react-router-dom";
+import { useStoreActions } from 'easy-peasy';
 
 const Form = () => {
 
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
+  const setFilterStack = useStoreActions(action => action.setFilterStack);
 
   const handleSubmit = e => {
+    setFilterStack([]);
     e.preventDefault();
     navigate(`/listings/${username}`);
   }

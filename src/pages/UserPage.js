@@ -23,19 +23,19 @@ const UserPage = () => {
     const setStack = useStoreActions(actions => actions.setStack);
     const setFilterStack = useStoreActions(actions => actions.setFilterStack);
     const setStackStats = useStoreActions(actions => actions.setStackStats);
-    const setOctokitLoading = useStoreActions(actions => actions.setOctokitLoading);
+    const setGithubDataLoaded = useStoreActions(actions => actions.setGithubDataLoaded);
 
     const { user } = useParams();
     const octokit = new Octokit({ auth: process.env.REACT_APP_GITHUB_TOKEN });
     
     useEffect(() => {
-        setOctokitLoading(true)
+        setGithubDataLoaded(false);
         octokit.rest.repos.listForUser({
             username: user,
             per_page: 100,
         })
         .then(res => {
-            setOctokitLoading(false);
+            setGithubDataLoaded(true);
             const languageCounts = getLanguageCount(res.data.map(repo => repo.language));
             setStackStats(languageCounts);
             const validLanguages = res.data.map(repo => repo.language).filter(language => language);

@@ -17,11 +17,13 @@ const JobListings = () => {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
-    const searchParam = filterStack.join(" ").toLowerCase();
-    // fetch job data based on user tech stack which is "searchParam"
-    fetch(`https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${process.env.REACT_APP_ADZUNA_APP_ID}&app_key=${process.env.REACT_APP_ADZUNA_APP_KEY}&what_or=${searchParam}&results_per_page=5`)
-    .then(res => res.json())
-    .then(data => setListings(data.results));
+    if (filterStack.length > 0) {
+      const searchParam = filterStack.join(" ").toLowerCase();
+      // fetch job data based on user tech stack which is "searchParam"
+      fetch(`https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${process.env.REACT_APP_ADZUNA_APP_ID}&app_key=${process.env.REACT_APP_ADZUNA_APP_KEY}&what_or=${searchParam}&results_per_page=5`)
+      .then(res => res.json())
+      .then(data => setListings(data.results));
+    }
   }, [filterStack]);
 
   useEffect(() => {

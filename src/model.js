@@ -5,7 +5,7 @@ const globalState = {
     stack: [],
     filterStack: [],
     stackStats: null,
-    octokitLoading: false,
+    githubDataLoaded: false,
     
     // actions
     setStack: action((state, payload) => {
@@ -17,8 +17,8 @@ const globalState = {
     setStackStats: action((state, payload) => {
         state.stackStats = payload;
     }),
-    setOctokitLoading: action((state, payload) => {
-        state.octokitLoading = payload;
+    setGithubDataLoaded: action((state, payload) => {
+        state.githubDataLoaded = payload;
     }),
 };
 
